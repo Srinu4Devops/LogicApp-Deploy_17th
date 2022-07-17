@@ -1,0 +1,20 @@
+name: AzureARM Deploy
+on: push
+jobs:
+  Deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: azure/login@v1
+       with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+     - name: Checkout source code 
+       uses: actions/checkout@v2
+     
+     - name: Deploy ARM Template
+       uses: azure/arm-deploy@v1
+       with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./ARMTemplates/LogicApp.json
+          parameters: ./ARMTemplates/LogicApp.Param.json
