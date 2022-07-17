@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workflows_LogicApp_SP_name": {
-            "value": "New-LA-Srinee"
+            "value": "New-LA-MTR"
         },
         "connections_gmail_externalid": {
             "value": "/subscriptions/beb2107a-2219-488b-929e-7939bb20b9a2/resourceGroups/Dev-LA/providers/Microsoft.Web/connections/gmail"
