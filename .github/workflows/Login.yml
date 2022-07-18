@@ -19,3 +19,13 @@ jobs:
         run: |
           az account show
           az group list
+      - name: Checkout source code 
+        uses: actions/checkout@v2
+     
+      - name: Deploy ARM Template
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./ARMTemplates/LogicApp.json
+          parameters: ./ARMTemplates/LogicApp_Param.json
